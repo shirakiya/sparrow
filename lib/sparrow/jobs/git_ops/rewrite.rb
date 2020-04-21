@@ -15,7 +15,8 @@ module Sparrow
           source_repo:,
           config_repo:,
           erb_path:,
-          out_path:
+          out_path:,
+          labels:
         )
           # rubocop:enable Metrics/ParameterLists
           @build = build
@@ -24,6 +25,7 @@ module Sparrow
           @config_repo = config_repo
           @erb_path = erb_path
           @out_path = out_path
+          @labels = labels
         end
 
         def run
@@ -32,8 +34,16 @@ module Sparrow
             return
           end
 
-          create_pull_request
+          pull_request = create_pull_request
           logger.info("created a pull request")
+
+          if @labels && @labels.size > 0
+            client.add_labels_to_an_issue(
+              @config_repo,
+              pull_request.id,
+              @labels,
+            )
+          end
         end
 
         private

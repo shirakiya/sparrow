@@ -48,7 +48,8 @@ module Sparrow
             source_repo: target["source_repo"],
             config_repo: target["config_repo"],
             erb_path: rewrite["erb_path"],
-            out_path: rewrite["out_path"]
+            out_path: rewrite["out_path"],
+            labels: target["labels"],
           )
         end
       end
