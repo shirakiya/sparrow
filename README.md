@@ -3,7 +3,7 @@
 ![monorail](docs/assets/mascot.png)
 
 Sparrow is a bot runs jobs on Cloud Build events. It subscribes to Cloud Build
-events through the Cloud PubSub topic `cloud-builds, which is available out of
+events through the Cloud PubSub topic `cloud-builds`, which is available out of
 the box.
 
 Sparrow can
