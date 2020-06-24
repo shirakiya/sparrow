@@ -1,10 +1,14 @@
-name: Publish Docker
+name: Docker
 
 on:
-  - push
+  - push:
+      branch:
+        - master
+      tags:
+        - *
 
 jobs:
-  build:
+  push:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
